@@ -12,7 +12,13 @@ app.get('/',function(req,res){
 
 io.on("connection", (socket) => {
  console.log("user connected")
+
+ socket.on("disconnect", () => {
+    console.log("user disconnected")
+   });
 });
+
+
 
 httpServer.listen(6001,function(){
     console.log('listening on *:6001');
